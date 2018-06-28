@@ -4,9 +4,9 @@
             <%- partial('post/banner') %>
         <% } %>
         <% if (post.link || post.title) { %>
-             <header class="article-header">
+            <header class="article-header">
                 <%- partial('post/title', { class_name: 'article-title' }) %>
-                <% if (index && post.excerpt) { %>
+                <!--<% if (index && post.excerpt) { %>
 
                 <% } else { %>
                   <% if (post.layout != 'page') { %>
@@ -14,7 +14,13 @@
                          <%- partial('post/author') %>
                      </div>
                  <% } %>
-                <% } %>
+                <% } %>-->
+                <% if (post.layout != 'page') { %>
+                   <div class="article-meta">
+                       <%- partial('post/author') %>
+                       <%- partial('post/date', { class_name: 'article-date', date_format: null }) %>                 
+                   </div>
+               <% } %>
             </header>
         <% } %>
         <%- partial('post/gallery') %>
